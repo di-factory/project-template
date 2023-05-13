@@ -84,12 +84,6 @@ endif
 test_environment:
 	$(PYTHON_INTERPRETER) test_environment.py
 
-## Create git repository first time
-git init
-git remote add origin https://github.com/di-factory/$(PROJECT_NAME).git
-git branch -M main
-git push -u origin main
-
 #################################################################################
 # PROJECT RULES                                                                 #
 #################################################################################
