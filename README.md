@@ -1,4 +1,4 @@
-project_name
+project-template
 ==============================
 
 A short description of the project.

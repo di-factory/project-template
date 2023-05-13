@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# project_name documentation build configuration file, created by
+# project-template documentation build configuration file, created by
 # sphinx-quickstart.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -185,7 +185,7 @@ latex_elements = {
 latex_documents = [
     ('index',
      'project-template.tex',
-     u'project_template Documentation',
+     u'project-template Documentation',
      u"∂i~f", 'manual'),
 ]
 
@@ -215,7 +215,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'project_template', u'project_template Documentation',
+    ('index', 'project-template', u'project-template Documentation',
      [u"∂i~f"], 1)
 ]
 
