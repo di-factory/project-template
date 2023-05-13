@@ -13,6 +13,8 @@ python-dotenv>=0.5.1
 # for data profiling
 ydata_profiling
 ipywidgets
+dvc
 
-# for ml selection
+# for ml profiling
 pycaret
+mlflow

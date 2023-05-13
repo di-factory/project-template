@@ -41,7 +41,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'project_name'
+project = u'project-template'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -164,7 +164,7 @@ html_static_path = ['_static']
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'project_namedoc'
+htmlhelp_basename = 'project-templatedoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -184,8 +184,8 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
     ('index',
-     'project_name.tex',
-     u'project_name Documentation',
+     'project-template.tex',
+     u'project_template Documentation',
      u"∂i~f", 'manual'),
 ]
 
@@ -215,7 +215,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'project_name', u'project_name Documentation',
+    ('index', 'project_template', u'project_template Documentation',
      [u"∂i~f"], 1)
 ]
 
@@ -229,8 +229,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    ('index', 'project_name', u'project_name Documentation',
-     u"∂i~f", 'project_name',
+    ('index', 'project-temmplate', u'project-template Documentation',
+     u"∂i~f", 'project-template',
      'A short description of the project.', 'Miscellaneous'),
 ]
 
