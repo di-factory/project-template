@@ -6,9 +6,9 @@
 
 PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 PROFILE = default
-PROJECT_NAME = project-template
+PROJECT_NAME = project-template2
 PYTHON_INTERPRETER = python3
-BUCKET = $(PROJECT_NAME)-difbucket
+BUCKET = project-template-difbucket
 
 ifeq (,$(shell which conda))
 HAS_CONDA=False
@@ -22,13 +22,12 @@ endif
 
 ## Install Python Dependencies
 requirements: test_environment
-	@echo "Project dir: $(PROJECT_DIR)"
-	
 	$(PYTHON_INTERPRETER) -m pip install -U pip setuptools wheel
 	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
+	
 
 ## Make Dataset
-data: #requirements
+data: requirements
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py data/raw data/processed
 
 ## Delete all compiled Python files
@@ -40,14 +39,6 @@ clean:
 lint:
 	flake8 src
 
-## creating project data Bucket 
-create_s3_bucket:
-ifeq (default,$(PROFILE))
-	aws s3api create-bucket --bucket $(BUCKET)
-else
-	aws s3api create-bucket --bucket $(BUCKET) -- profile $(PROFILE)
-endif
-
 ## Upload Data to S3
 sync_data_to_s3:
 ifeq (default,$(PROFILE))
@@ -55,6 +46,17 @@ ifeq (default,$(PROFILE))
 else
 	aws s3 sync data/ s3://$(BUCKET)/data/ --profile $(PROFILE)
 endif
+
+## init DVC in S3
+init_dvc_in_s3:
+	dvc init --force
+	dvc add data/ 
+	git add data.dvc .gitignore
+	git commit -m "Add raw data"
+	git add .
+	dvc remote add -d storage s3://$(BUCKET)/dvcstore --force
+	dvc push
+	git push
 
 ## Download Data from S3
 sync_data_from_s3:
