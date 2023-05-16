@@ -1,4 +1,0 @@
-[core]
-    remote = storage
-['remote "storage"']
-    url = s3://project-template-difbucket/dvcstore

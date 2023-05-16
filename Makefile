@@ -6,9 +6,9 @@
 
 PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 PROFILE = default
-PROJECT_NAME = project-template2
+PROJECT_NAME = projectxxx
 PYTHON_INTERPRETER = python3
-BUCKET = project-template-difbucket
+BUCKET = projectxxx-difbucket
 
 ifeq (,$(shell which conda))
 HAS_CONDA=False
@@ -70,7 +70,7 @@ create_environment:
 ifeq (True,$(HAS_CONDA))
 		@echo ">>> Detected conda, creating conda environment."
 ifeq (3,$(findstring 3,$(PYTHON_INTERPRETER)))
-	conda create --name $(PROJECT_NAME) python=3.9
+	conda create --name $(PROJECT_NAME) python=3.10
 else
 	conda create --name $(PROJECT_NAME) python=2.7
 endif

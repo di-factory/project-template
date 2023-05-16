@@ -5,7 +5,6 @@
 # external requirements
 scikit-learn
 pycaret
-awscli
 click
 Sphinx
 coverage
@@ -21,6 +20,10 @@ jupyter
 prophet
 #ydata-profiling
 dvc
+
+#for AWS conection
+awscli
+dvc-s3
 
 # for ml profiling
 mlflow
