@@ -60,7 +60,7 @@ init_dvc_in_s3:
 	dvc init --force
 	dvc add data/ 
 	git add .
-	git commit -m "Add raw data"
+	# git commit -m "Add raw data"
 	dvc remote add -d storage s3://$(BUCKET)/dvcstore --force
 	dvc push
 	git push
