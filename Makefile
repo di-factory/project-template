@@ -47,6 +47,14 @@ else
 	aws s3 sync data/ s3://$(BUCKET)/data/ --profile $(PROFILE)
 endif
 
+## create a s3 project bucket
+create_s3:
+ifeq (default,$(PROFILE))
+	aws s3api create-bucket --bucket $(BUCKET) 
+else
+	aws s3api create-bucket --bucket $(BUCKET)  --profile $(PROFILE)
+endif
+	
 ## init DVC in S3
 init_dvc_in_s3:
 	dvc init --force
@@ -56,7 +64,7 @@ init_dvc_in_s3:
 	dvc remote add -d storage s3://$(BUCKET)/dvcstore --force
 	dvc push
 	git push
-
+	
 ## Download Data from S3
 sync_data_from_s3:
 ifeq (default,$(PROFILE))
